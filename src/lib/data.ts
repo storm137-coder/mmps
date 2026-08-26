@@ -155,35 +155,35 @@ export const facilitiesList = [
         id: "classrooms",
         title: "Smart Classrooms",
         description: "Spacious, well-ventilated, and digitally equipped learning spaces designed to ensure maximum individual attention and collaborative group work.",
-        image: "/images/square1.jpg",
+        image: "/images/1.jpg",
         features: ["Ergonomic seating", "Digital interactive boards", "Student work display zones", "Natural lighting & ventilation"]
     },
     {
         id: "computer-lab",
         title: "High-Tech Computer Lab",
         description: "Over 30+ modern computer workstations with dedicated high-speed broadband internet, supervised by qualified technology educators.",
-        image: "/images/square2.jpg",
+        image: "/images/2.jpg",
         features: ["30+ Modern workstations", "Dedicated broadband connection", "Coding & digital literacy tools", "Monitored & safe internet access"]
     },
     {
         id: "library",
         title: "Resource Library (150+ Capacity)",
         description: "The intellectual heart of the school accommodating over 150 students simultaneously, housing thousands of fiction, non-fiction, reference volumes, and journals.",
-        image: "/images/square3.jpg",
+        image: "/images/3.jpg",
         features: ["150+ Student reading capacity", "Extensive fiction & non-fiction collection", "Academic journals & periodicals", "Quiet study & research zones"]
     },
     {
         id: "studios",
         title: "Specialist Creative Studios",
         description: "Dedicated spaces for Mathematics, Music, Dance, Theatre, and Visual Arts where students discover and nurture their unique creative talents.",
-        image: "/images/square.jpg",
+        image: "/images/scholastic_2.jpg",
         features: ["Hands-on Mathematics activity lab", "Vocal & Instrumental Music room", "Classical & Contemporary Dance studio", "Visual arts & craft workshop"]
     },
     {
         id: "sports",
         title: "Sports & Fitness Arena",
         description: "Comprehensive indoor and outdoor athletic facilities fostering physical fitness, discipline, and sportsmanship across diverse disciplines.",
-        image: "/images/slider1.jpg",
+        image: "/images/4.jpg",
         features: ["Basketball & Volleyball courts", "Badminton & Gymnastics facilities", "Cricket & Football training", "Aerobics, Taekwondo & Yoga"]
     }
 ];
@@ -255,18 +255,56 @@ export const faqList = [
     }
 ];
 
-export const galleryCategories = ["All", "Campus", "Activities", "Events", "Academic Life"];
+export const galleryCategories = ["All", "Student Achievements", "Classrooms & Campus", "Facilities & Labs", "Sports & Athletics"];
 export const galleryImages = [
-    { src: "/images/slider1.jpg", category: "Campus", alt: "Max Muller Public School Building & Campus", title: "Main Campus Facade" },
-    { src: "/images/slider2.jpg", category: "Academic Life", alt: "Students in Interactive Classroom", title: "Collaborative Learning" },
-    { src: "/images/1.jpg", category: "Activities", alt: "Student Extra-curricular Activities", title: "Creative Arts & Expression" },
-    { src: "/images/2.jpg", category: "Campus", alt: "School Infrastructure & Grounds", title: "Outdoor Sports Arena" },
-    { src: "/images/3.jpg", category: "Events", alt: "Annual School Celebrations", title: "Cultural Celebrations" },
-    { src: "/images/4.jpg", category: "Campus", alt: "Modern Learning Facilities", title: "Resource Library & Labs" },
-    { src: "/images/5.jpg", category: "Activities", alt: "Sports & Physical Education", title: "Martial Arts & Taekwondo" },
-    { src: "/images/6.jpg", category: "Events", alt: "Investiture Ceremony & Awards", title: "Student Council Leadership" },
-    { src: "/images/7.jpg", category: "Campus", alt: "Spacious Classrooms", title: "Smart Classroom Tech" },
-    { src: "/images/8.jpg", category: "Activities", alt: "Inter-School Sports Champions", title: "Athletic Excellence" }
+    { 
+        src: "/images/5.jpg", 
+        category: "Student Achievements", 
+        alt: "Vijaya Karnataka Newspaper Feature of Max Muller Public School SSLC Examination Toppers 2024-25", 
+        title: "SSLC 2024–25 Toppers (Vijaya Karnataka Feature)" 
+    },
+    { 
+        src: "/images/6.jpg", 
+        category: "Student Achievements", 
+        alt: "Official Honor Roll of Max Muller Public School SSLC Board Examination Toppers 2024-25", 
+        title: "SSLC Board Examination 2024–25 Toppers" 
+    },
+    { 
+        src: "/images/7.jpg", 
+        category: "Student Achievements", 
+        alt: "News Trail Newspaper Report on Max Muller Public School SSLC Examination Distinction Achievers", 
+        title: "SSLC Toppers (News Trail Feature)" 
+    },
+    { 
+        src: "/images/8.jpg", 
+        category: "Student Achievements", 
+        alt: "Student Academic Excellence Honors at Max Muller Public School", 
+        title: "Academic Excellence & Board Distinction" 
+    },
+    { 
+        src: "/images/1.jpg", 
+        category: "Classrooms & Campus", 
+        alt: "Smart Classroom with modern wooden student desks and blackboard", 
+        title: "Spacious & Well-Ventilated Classrooms" 
+    },
+    { 
+        src: "/images/2.jpg", 
+        category: "Facilities & Labs", 
+        alt: "Computer Laboratory with modern PC workstations and high-speed broadband", 
+        title: "High-Tech Computer Laboratory (30+ PCs)" 
+    },
+    { 
+        src: "/images/3.jpg", 
+        category: "Facilities & Labs", 
+        alt: "School Library with extensive collection of books and study tables", 
+        title: "Resource Library & Reading Room (150+ Capacity)" 
+    },
+    { 
+        src: "/images/4.jpg", 
+        category: "Sports & Athletics", 
+        alt: "Students playing basketball in the outdoor school athletic arena", 
+        title: "Outdoor Sports Arena & Basketball Court" 
+    }
 ];
 
 export const upcomingEvents = [

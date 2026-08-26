@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { galleryImages, galleryCategories } from '@/lib/data';
-import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
 
 export default function GalleryLightbox() {
     const [selectedCategory, setSelectedCategory] = useState("All");
@@ -45,7 +45,7 @@ export default function GalleryLightbox() {
 
     return (
         <div className="space-y-10">
-            {/* Category Filter Pills */}
+            {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
                 {galleryCategories.map(cat => (
                     <button
@@ -57,32 +57,45 @@ export default function GalleryLightbox() {
                                 : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                         }`}
                     >
-                        {cat}
+                        {cat === "Student Achievements" ? "🏆 Student Achievements" : cat}
                     </button>
                 ))}
             </div>
 
-            {/* Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Photo Grid - Clean, Unobstructed with Footer Captions */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {filtered.map((img, idx) => (
                     <div
                         key={idx}
                         onClick={() => openLightbox(idx)}
-                        className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 shadow-md cursor-pointer border border-slate-200/80"
+                        className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 border border-slate-200/80 cursor-pointer flex flex-col justify-between"
                     >
-                        <img
-                            src={img.src}
-                            alt={img.alt}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 mb-1">
-                                {img.category}
-                            </span>
-                            <h4 className="text-base font-serif font-bold">{img.title}</h4>
-                            <div className="absolute top-4 right-4 w-9 h-9 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
-                                <Maximize2 size={16} />
+                        {/* Clean Image Container without text overlay */}
+                        <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                            <img
+                                src={img.src}
+                                alt={img.alt}
+                                className="w-full h-full object-contain sm:object-cover transition-transform duration-300 group-hover:scale-102"
+                            />
+                            <div className="absolute top-3 right-3 w-8 h-8 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                                <Maximize2 size={14} />
                             </div>
+                        </div>
+
+                        {/* Accurate Footer Caption Below Image */}
+                        <div className="p-4 sm:p-5 border-t border-slate-100 space-y-1.5 bg-white">
+                            <div className="flex items-center gap-1.5">
+                                <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full inline-block ${
+                                    img.category === "Student Achievements" 
+                                        ? "bg-amber-100 text-amber-800 border border-amber-200" 
+                                        : "bg-slate-100 text-slate-700"
+                                }`}>
+                                    {img.category}
+                                </span>
+                            </div>
+                            <h4 className="text-sm sm:text-base font-serif font-bold text-brand-dark line-clamp-2">
+                                {img.title}
+                            </h4>
                         </div>
                     </div>
                 ))}
@@ -90,7 +103,7 @@ export default function GalleryLightbox() {
 
             {/* Fullscreen Lightbox Modal */}
             {lightboxIndex !== null && (
-                <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
                     <button
                         onClick={closeLightbox}
                         className="absolute top-6 right-6 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
@@ -111,14 +124,14 @@ export default function GalleryLightbox() {
                         <img
                             src={filtered[lightboxIndex].src}
                             alt={filtered[lightboxIndex].alt}
-                            className="max-h-[70vh] w-auto object-contain rounded-2xl shadow-2xl"
+                            className="max-h-[70vh] w-auto object-contain rounded-2xl shadow-2xl bg-slate-900/50"
                         />
-                        <div className="mt-4 text-center text-white">
-                            <span className="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full inline-block mb-1 border border-amber-500/30">
+                        <div className="mt-4 text-center text-white space-y-1">
+                            <span className="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/20 px-3 py-1 rounded-full inline-block border border-amber-500/30">
                                 {filtered[lightboxIndex].category}
                             </span>
-                            <h3 className="text-xl font-serif font-bold mt-1">{filtered[lightboxIndex].title}</h3>
-                            <p className="text-xs text-slate-400 mt-0.5">{lightboxIndex + 1} of {filtered.length}</p>
+                            <h3 className="text-xl font-serif font-bold text-white">{filtered[lightboxIndex].title}</h3>
+                            <p className="text-xs text-slate-400">{lightboxIndex + 1} of {filtered.length}</p>
                         </div>
                     </div>
 
